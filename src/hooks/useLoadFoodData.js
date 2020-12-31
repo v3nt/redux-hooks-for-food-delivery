@@ -1,7 +1,7 @@
-import { LOAD_MENU } from "../actions/types";
-
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
+
+import { LOAD_MENU } from "../actions/types";
 import { loadFoodData } from "../utils/utils";
 
 function useLoadFoodData() {

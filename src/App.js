@@ -2,8 +2,6 @@ import React, { Fragment, useEffect } from "react";
 import { shallowEqual, useSelector, useDispatch } from "react-redux";
 import { connect } from "react-redux";
 
-import { CHANGE_DIET } from "./actions/types";
-
 import allActions from "./actions/";
 
 import { MenuList, Message, PaymentFooter } from "./Comps";
@@ -24,7 +22,7 @@ const App = (props) => {
 
   function handleVegToggle() {
     dispatch({
-      type: CHANGE_DIET,
+      type: allActions.CHANGE_DIET,
     });
   }
 
@@ -56,8 +54,6 @@ const App = (props) => {
   );
 };
 
-// export default App;
-// export default connect(null, allActions)(App);
 export default connect(null, allActions)(App);
 
 function selectorMenu(state) {
