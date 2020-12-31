@@ -1,10 +1,17 @@
 import { createStore } from "redux";
 
+import {
+  CHANGE_DIET,
+  LOAD_MENU,
+  ADD_TO_CART,
+  REMOVE_FROM_CART,
+} from "./actions/types";
+
 export const ACTIONS = {
-  CHANGE_DIET: "CHANGE_DIET",
-  LOAD_MENU: "LOAD_MENU",
-  ADD_TO_CART: "ADD_TO_CART",
-  REMOVE_FROM_CART: "REMOVE_FROM_CART",
+  CHANGE_DIET,
+  LOAD_MENU,
+  ADD_TO_CART,
+  REMOVE_FROM_CART,
 };
 
 const initialState = {
@@ -19,7 +26,7 @@ const initialState = {
 
 function foodReducer(state = initialState, action) {
   switch (action.type) {
-    case ACTIONS.CHANGE_DIET: {
+    case CHANGE_DIET: {
       const { diet } = state;
       const newDiet = diet === "veg" ? "all" : "veg";
 
@@ -29,7 +36,7 @@ function foodReducer(state = initialState, action) {
         cartByIds: {},
       };
     }
-    case ACTIONS.LOAD_MENU: {
+    case LOAD_MENU: {
       const { menu } = action.payload;
 
       const menuById = {};
@@ -50,7 +57,7 @@ function foodReducer(state = initialState, action) {
         },
       };
     }
-    case ACTIONS.ADD_TO_CART: {
+    case ADD_TO_CART: {
       const { itemId } = action.payload;
       const { cartByIds } = state;
 
@@ -70,7 +77,7 @@ function foodReducer(state = initialState, action) {
         cartByIds: newCart,
       };
     }
-    case ACTIONS.REMOVE_FROM_CART: {
+    case REMOVE_FROM_CART: {
       const { itemId } = action.payload;
       const { cartByIds } = state;
 
