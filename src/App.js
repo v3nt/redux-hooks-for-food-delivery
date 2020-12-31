@@ -1,11 +1,13 @@
 import React, { Fragment, useEffect, useState } from "react";
 import { shallowEqual, useSelector, useDispatch } from "react-redux";
-
+// import { connect } from "react-redux";
 import { ACTIONS } from "./redux";
+// import * as actions from "./actions";
+
 import { MenuList, Message, PaymentFooter } from "./Comps";
 import { loadFoodData } from "./utils";
 
-export default function App() {
+const App = () => {
   const diet = useSelector((state) => state.diet);
   const dispatch = useDispatch();
 
@@ -48,7 +50,20 @@ export default function App() {
       )}
     </div>
   );
-}
+};
+
+// const initialState = {
+//   diet: "all",
+//   menuById: {},
+//   menuIdList: {
+//     all: [],
+//     veg: [],
+//   },
+//   cartByIds: {},
+// };
+
+export default App;
+// export default connect(initialState, actions)(App);
 
 function useLoadFoodData() {
   const [stateAPIStatus, setAPIStatus] = useState("idle");

@@ -1,6 +1,6 @@
-import { FETCH_FOOD } from "./types";
+import { CHANGE_DIET, LOAD_MENU, ADD_TO_CART, REMOVE_FROM_CART } from "./types";
 
-export const change_diet = () => {
+const change_diet = (state) => {
   const { diet } = state;
   const newDiet = diet === "veg" ? "all" : "veg";
 
@@ -11,7 +11,7 @@ export const change_diet = () => {
   };
 };
 
-export const load_menu = () => {
+const load_menu = (state, action) => {
   const { menu } = action.payload;
 
   const menuById = {};
@@ -33,7 +33,7 @@ export const load_menu = () => {
   };
 };
 
-export const add_to_cart = () => {
+const add_to_cart = (state, action) => {
   const { itemId } = action.payload;
   const { cartByIds } = state;
 
@@ -54,7 +54,7 @@ export const add_to_cart = () => {
   };
 };
 
-export const remove_from_cart = () => {
+const remove_from_cart = (state, action) => {
   const { itemId } = action.payload;
   const { cartByIds } = state;
 
@@ -75,4 +75,11 @@ export const remove_from_cart = () => {
     ...state,
     cartByIds: newCart,
   };
+};
+
+export default {
+  change_diet,
+  load_menu,
+  add_to_cart,
+  remove_from_cart,
 };
