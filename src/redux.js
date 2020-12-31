@@ -7,13 +7,6 @@ import {
   REMOVE_FROM_CART,
 } from "./actions/types";
 
-export const ACTIONS = {
-  CHANGE_DIET,
-  LOAD_MENU,
-  ADD_TO_CART,
-  REMOVE_FROM_CART,
-};
-
 const initialState = {
   diet: "all",
   menuById: {},

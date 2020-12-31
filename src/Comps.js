@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 
-import { ACTIONS } from "./redux";
+import { ADD_TO_CART, REMOVE_FROM_CART } from "./actions/types";
 
 export function MenuItem(props) {
   const { item } = props;
@@ -13,7 +13,7 @@ export function MenuItem(props) {
 
   function handleIncrement() {
     dispatch({
-      type: ACTIONS.ADD_TO_CART,
+      type: ADD_TO_CART,
       payload: {
         itemId: item.id,
       },
@@ -22,7 +22,7 @@ export function MenuItem(props) {
 
   function handleDecrement() {
     dispatch({
-      type: ACTIONS.REMOVE_FROM_CART,
+      type: REMOVE_FROM_CART,
       payload: {
         itemId: item.id,
       },
