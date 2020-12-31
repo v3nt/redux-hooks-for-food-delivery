@@ -5,6 +5,7 @@ import { useDispatch } from "react-redux";
 import { loadFoodData } from "../utils/utils";
 
 function useLoadFoodData() {
+  console.log("useLoadFoodData: init");
   const [stateAPIStatus, setAPIStatus] = useState("idle");
   const dispatch = useDispatch();
 

@@ -3,12 +3,12 @@ import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
 
 import App from "./App";
-import { createReduxStore } from "./redux";
+// import { createReduxStore } from "./redux";
 
 import "./styles.css";
 
 // import { createStore } from "redux";
-// import reducers from "./reducers";
+import { createReduxStore } from "./reducers";
 
 // console.dir(reducers);
 // const enableReduxDevTools = window.__REDUX_DEVTOOLS_EXTENSION__?.();

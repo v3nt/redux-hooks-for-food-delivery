@@ -10,7 +10,8 @@ import { MenuList, Message, PaymentFooter } from "./Comps";
 
 import useLoadFoodData from "./hooks/useLoadFoodData";
 
-const App = () => {
+const App = (props) => {
+  console.log("props", props);
   const diet = useSelector((state) => state.diet);
   const dispatch = useDispatch();
 
@@ -56,8 +57,8 @@ const App = () => {
 };
 
 // export default App;
+// export default connect(null, allActions)(App);
 export default connect(null, allActions)(App);
-// export default connect(initialState, actions)(App);
 
 function selectorMenu(state) {
   const { diet, menuIdList, menuById } = state;
