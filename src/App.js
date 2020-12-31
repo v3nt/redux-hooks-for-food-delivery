@@ -1,11 +1,12 @@
-import React, { Fragment, useEffect, useState } from "react";
+import React, { Fragment, useEffect } from "react";
 import { shallowEqual, useSelector, useDispatch } from "react-redux";
 // import { connect } from "react-redux";
 import { ACTIONS } from "./redux";
 // import * as actions from "./actions";
 
 import { MenuList, Message, PaymentFooter } from "./Comps";
-import { loadFoodData } from "./utils";
+
+import useLoadFoodData from "./hooks/useLoadFoodData";
 
 const App = () => {
   const diet = useSelector((state) => state.diet);
@@ -64,30 +65,6 @@ const App = () => {
 
 export default App;
 // export default connect(initialState, actions)(App);
-
-function useLoadFoodData() {
-  const [stateAPIStatus, setAPIStatus] = useState("idle");
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    setAPIStatus("loading");
-    loadFoodData()
-      .then((data) => {
-        dispatch({
-          type: ACTIONS.LOAD_MENU,
-          payload: {
-            menu: data,
-          },
-        });
-        setAPIStatus("success");
-      })
-      .catch((error) => {
-        setAPIStatus("error");
-      });
-  }, [dispatch]);
-
-  return stateAPIStatus;
-}
 
 function selectorMenu(state) {
   const { diet, menuIdList, menuById } = state;

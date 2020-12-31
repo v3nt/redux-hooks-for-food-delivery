@@ -1,4 +1,8 @@
+import { LOAD_MENU } from "../actions/types";
+
 import { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+import { loadFoodData } from "../utils/utils";
 
 function useLoadFoodData() {
   const [stateAPIStatus, setAPIStatus] = useState("idle");
@@ -9,7 +13,7 @@ function useLoadFoodData() {
     loadFoodData()
       .then((data) => {
         dispatch({
-          type: ACTIONS.LOAD_MENU,
+          type: LOAD_MENU,
           payload: {
             menu: data,
           },
