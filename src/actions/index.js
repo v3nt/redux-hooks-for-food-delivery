@@ -1,5 +1,3 @@
-import { CHANGE_DIET, LOAD_MENU, ADD_TO_CART, REMOVE_FROM_CART } from "./types";
-
 const change_diet = (state) => {
   const { diet } = state;
   const newDiet = diet === "veg" ? "all" : "veg";
