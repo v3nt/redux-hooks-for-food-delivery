@@ -1,8 +1,8 @@
 import React, { Fragment, useEffect } from "react";
 import { shallowEqual, useSelector, useDispatch } from "react-redux";
-// import { connect } from "react-redux";
+import { connect } from "react-redux";
 import { ACTIONS } from "./redux";
-// import * as actions from "./actions";
+import allActions from "./actions/";
 
 import { MenuList, Message, PaymentFooter } from "./Comps";
 
@@ -53,17 +53,8 @@ const App = () => {
   );
 };
 
-// const initialState = {
-//   diet: "all",
-//   menuById: {},
-//   menuIdList: {
-//     all: [],
-//     veg: [],
-//   },
-//   cartByIds: {},
-// };
-
-export default App;
+// export default App;
+export default connect(null, allActions)(App);
 // export default connect(initialState, actions)(App);
 
 function selectorMenu(state) {

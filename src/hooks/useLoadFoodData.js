@@ -10,8 +10,10 @@ function useLoadFoodData() {
 
   useEffect(() => {
     setAPIStatus("loading");
+    console.log("useLoadFoodData:loading");
     loadFoodData()
       .then((data) => {
+        console.log("useLoadFoodData:loaded");
         dispatch({
           type: LOAD_MENU,
           payload: {
