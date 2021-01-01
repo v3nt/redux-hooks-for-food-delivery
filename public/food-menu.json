@@ -37,5 +37,12 @@
         "label": "BBQ Double Burger",
         "description": "Beef patties with a slice of cheese, shredded lettuce, tomato and onions",
         "price": 16
+    },
+    {
+        "id": "TF",
+        "label": "Tofu",
+        "diet": "vegan",
+        "description": "Plain pure Tofu",
+        "price": 5
     }
 ]

@@ -3,6 +3,7 @@ import { shallowEqual, useSelector, useDispatch } from "react-redux";
 import { connect } from "react-redux";
 
 import allActions from "./actions/";
+import { CHANGE_DIET, CHANGE_DIET_VEGAN } from "./actions/types";
 
 import { MenuList, Message, PaymentFooter } from "./Comps";
 
@@ -22,7 +23,12 @@ const App = (props) => {
 
   function handleVegToggle() {
     dispatch({
-      type: allActions.CHANGE_DIET,
+      type: CHANGE_DIET,
+    });
+  }
+  function handleVeganToggle() {
+    dispatch({
+      type: CHANGE_DIET_VEGAN,
     });
   }
 
@@ -30,16 +36,28 @@ const App = (props) => {
     <div className="food-app">
       <header>
         <h1>Ordux</h1>
-        <label>
-          <input
-            type="checkbox"
-            name="veg-checkbox"
-            value={diet}
-            checked={diet === "veg"}
-            onChange={handleVegToggle}
-          />
-          Veg Only
-        </label>
+        <div>
+          <label>
+            <input
+              type="checkbox"
+              name="vegan-checkbox"
+              value={diet}
+              checked={diet === "vegan"}
+              onChange={handleVeganToggle}
+            />
+            Vegan
+          </label>
+          <label>
+            <input
+              type="checkbox"
+              name="veg-checkbox"
+              value={diet}
+              checked={diet === "veg"}
+              onChange={handleVegToggle}
+            />
+            Veg
+          </label>
+        </div>
       </header>
       <Message status={stateAPIStatus} />
       {stateAPIStatus === "success" && (

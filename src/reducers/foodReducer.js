@@ -1,5 +1,6 @@
 import {
   CHANGE_DIET,
+  CHANGE_DIET_VEGAN,
   LOAD_MENU,
   ADD_TO_CART,
   REMOVE_FROM_CART,
@@ -11,6 +12,7 @@ const initialState = {
   menuIdList: {
     all: [],
     veg: [],
+    vegan: [],
   },
   cartByIds: {},
 };
@@ -19,7 +21,30 @@ function foodReducer(state = initialState, action) {
   switch (action.type) {
     case CHANGE_DIET: {
       const { diet } = state;
+      console.log("state", state);
+      console.log("diet", diet);
       const newDiet = diet === "veg" ? "all" : "veg";
+      // var newDiet = "";
+
+      // if (diet === "veg") {
+      //   newDiet = "veg";
+      // } else if (diet === "vegan") {
+      //   newDiet = "vegan";
+      // } else {
+      //   newDiet = "all";
+      // }
+
+      console.log("newDiet", newDiet);
+
+      return {
+        ...state,
+        diet: newDiet,
+        cartByIds: {},
+      };
+    }
+    case CHANGE_DIET_VEGAN: {
+      const { diet } = state;
+      const newDiet = diet === "vegan" ? "all" : "vegan";
 
       return {
         ...state,
@@ -38,6 +63,9 @@ function foodReducer(state = initialState, action) {
       const vegMenuId = menu
         .filter((item) => item.diet === "veg")
         .map((item) => item.id);
+      const veganMenuId = menu
+        .filter((item) => item.diet === "vegan")
+        .map((item) => item.id);
 
       return {
         ...state,
@@ -45,6 +73,7 @@ function foodReducer(state = initialState, action) {
         menuIdList: {
           all: allMenuId,
           veg: vegMenuId,
+          vegan: veganMenuId,
         },
       };
     }
